@@ -8,7 +8,7 @@ and prints details ONLY for currently active or future grants (where the
 project end date is later than the current date). Details include grant number,
 award amount, and project start/end dates.
 """
-
+import csv
 import requests
 import json
 from datetime import datetime, date
@@ -256,6 +256,13 @@ if __name__ == "__main__":
     # print("\nScript finished.")
 
 piList = [('al’Absi', 'Mustafa'), ('Anker', 'Justin'), ('Bishop', 'Jeffrey'), ('Carroll', 'Dana'), ('Conelea', 'Christine'), ('Fair', 'Damien'), ('Gunlicks-Stoessel', 'Meredith'), ('Krueger', 'Robert'), ('Kummerfeld', 'Erich'), ('Kushner', 'Matt'), ('Lim', 'Kelvin'), ('Luciana', 'Monica'), ('McGue', 'Matthew'), ('McMorris', 'Barbara'), ('Peterson', 'Carol'), ('Piehler', 'Timothy'), ('Redish', 'A. David'), ('Rinehart', 'Linda'), ('Schallmo', 'Michael-Paul'), ('Specker', 'Sheila'), ('Sponheim', 'Scott'), ('Thomas', 'Mark'), ('Toomey', 'Traci'), ('Vrieze', 'Scott'), ('Widome', 'Rachel'), ('Wilson', 'Sylia')]
+
+# read the piList from a csv file
+with open('unique_names.csv', 'r') as f:
+    # ignore the header row
+    next(f)
+    reader = csv.reader(f)
+    piList = list(reader)
 
 # Initialize an empty list to store grant data
 
